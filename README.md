@@ -19,36 +19,37 @@
 ## 📂 Архитектура проекта
 
 project/
-├── public/ # Публичные файлы
-│ └── icons/ # Иконки и статичные ресурсы
-├── index.html # Точка входа HTML
-├── src/ # Исходный код приложения
-│ ├── components/ # Переиспользуемые UI-компоненты
-│ │ ├── AnswerOptions.tsx # Список вариантов ответа
-│ │ ├── OptionItem.tsx # Отдельный вариант ответа
-│ │ ├── ProgressBar.tsx # Прогрессбар опроса
-│ │ ├── ShareLink.tsx # Кнопка/ссылка для шаринга результата
-│ │ ├── SkipButton.tsx # Кнопка пропуска вопроса
-│ │ └── index.ts # Экспорт компонентов
-│ ├── data/ # Статические данные
-│ │ └── questions.ts # Список вопросов опроса
-│ ├── pages/ # Страницы приложения
-│ │ ├── ResultPage.tsx # Итоговая страница результатов
-│ │ └── SurveyPage.tsx # Страница прохождения опроса
-│ ├── store/ # Логика состояния
-│ │ ├── slices/ # Redux slices
-│ │ └── index.ts # Конфигурация стора
-│ ├── styled/ # Стилизация
-│ │ ├── Shared.styled.ts # Общие styled-компоненты
-│ │ └── styles.css # Глобальные стили
-│ ├── types/ # Типы TypeScript
-│ │ └── qustion.ts # Типизация вопросов (опечатка в названии)
-│ ├── App.tsx # Корневой компонент
-│ └── main.tsx # Точка входа React
-├── package.json # Зависимости и скрипты
-├── tsconfig.json # Конфигурация TypeScript
-├── webpack.config.js # Конфигурация Webpack
-└── package-lock.json
+├── public/                      # Публичные файлы
+│   └── icons/                   # Иконки и статичные ресурсы
+├── index.html                   # Точка входа HTML
+├── src/                         # Исходный код приложения
+│   ├── components/              # Переиспользуемые UI-компоненты
+│   │   ├── AnswerOptions.tsx    # Список вариантов ответа
+│   │   ├── OptionItem.tsx       # Отдельный вариант ответа
+│   │   ├── ProgressBar.tsx      # Прогрессбар опроса
+│   │   ├── ShareLink.tsx        # Кнопка/ссылка для шаринга результата
+│   │   ├── SkipButton.tsx       # Кнопка пропуска вопроса
+│   │   └── index.ts             # Экспорт компонентов
+│   ├── data/                    # Статические данные
+│   │   └── questions.ts         # Список вопросов опроса
+│   ├── pages/                   # Страницы приложения
+│   │   ├── ResultPage.tsx       # Итоговая страница результатов
+│   │   └── SurveyPage.tsx       # Страница прохождения опроса
+│   ├── store/                   # Логика состояния
+│   │   ├── slices/              # Redux slices
+│   │   └── index.ts             # Конфигурация стора
+│   ├── styled/                  # Стилизация
+│   │   ├── Shared.styled.ts     # Общие styled-компоненты
+│   │   └── styles.css           # Глобальные стили
+│   ├── types/                   # Типы TypeScript
+│   │   └── qustion.ts           # Типизация вопросов (опечатка в названии)
+│   ├── App.tsx                  # Корневой компонент приложения
+│   └── main.tsx                 # Точка входа React
+├── package.json                 # Зависимости и скрипты
+├── tsconfig.json                # Конфигурация TypeScript
+├── webpack.config.js            # Конфигурация Webpack
+└── package-lock.json            # Лок-файл зависимостей
+
 
 ---
 
