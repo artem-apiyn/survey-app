@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Montserrat+Underline:ital,wght@0,100..900;1,100..900&family=Mozilla+Text:wght@200..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --border: 205, 205, 205;
+    --bg: 242, 242, 242
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 200px;
+    background-color: rgb(var(--bg));
+    cursor: default;
+}
+h1{
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: 600
+}
+.survey-page {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgb(var(--border));
+    height: 550px
+
+}
+.option-item {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    border-bottom: 1px solid rgba(var(--border), 0.6);
+}
+.next-button {
+    background-color: rgba(123, 140, 157, 1);
+    color: white;
+    border: none;
+    padding: 0 18px;
+    
+    cursor: pointer;
+    font-size: 18px;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0 8px 0 0;
+}
