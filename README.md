@@ -50,7 +50,7 @@ project/
 ├── tsconfig.json                # Конфигурация TypeScript
 ├── webpack.config.js            # Конфигурация Webpack
 └── package-lock.json            # Лок-файл зависимостей
-
+```
 
 ---
 
