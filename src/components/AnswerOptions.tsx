@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import OptionItem from "./OptionItem";
 import { questions } from "../data/questions";
 import SkipButton from "./SkipButton";
@@ -8,6 +8,8 @@ import { AnswerOptionsWrapper } from "../styled/Shared.styled";
 import { nextQuestion } from "../store/slices/navigationSlice";
 import { QuestionState } from "../types/qustion";
 
+type QuestionType = 'checkbox' | 'radio';
+
 interface AnswerOptionsProps {
     questionId: number;
     selectedOptions: QuestionState;
@@ -16,30 +18,35 @@ interface AnswerOptionsProps {
 
 const AnswerOptions = ({ questionId, selectedOptions, goToResultPage }: AnswerOptionsProps) => {
     const dispatch = useDispatch();
-    const currentQuestion = questions[questionId];
+
+    const currentQuestion = useMemo(() => questions[questionId] ?? null, [questionId]);
 
     const handleOptionChange = useCallback(
         (value: string, checked: boolean) => {
+            if (!currentQuestion) return;
             dispatch(
                 toggleOption({
                     questionId: currentQuestion.id,
                     value,
                     checked,
-                    type: currentQuestion.type,
+                    type: currentQuestion.type as QuestionType,
                 })
             );
         },
-        [dispatch, currentQuestion.id, currentQuestion.type]
+        [dispatch, currentQuestion]
     );
 
     const handleSkip = useCallback(() => {
+        if (!currentQuestion) return;
         dispatch(skipOptions({ questionId: currentQuestion.id }));
         if (questionId === questions.length - 1) {
             goToResultPage();
         } else {
             dispatch(nextQuestion());
         }
-    }, [dispatch, currentQuestion.id, questionId, goToResultPage]);
+    }, [dispatch, currentQuestion, questionId, goToResultPage]);
+
+    if (!currentQuestion) return null;
 
     return (
         <>
@@ -49,7 +56,7 @@ const AnswerOptions = ({ questionId, selectedOptions, goToResultPage }: AnswerOp
                         key={item.id}
                         label={item.text}
                         value={item.text}
-                        type={currentQuestion.type}
+                        type={currentQuestion.type as QuestionType}
                         checked={selectedOptions.answers.includes(item.text)}
                         onChange={handleOptionChange}
                     />

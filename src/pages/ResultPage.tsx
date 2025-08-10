@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../store';
@@ -13,15 +13,11 @@ const ResultPage = () => {
 
   const allAnswers = useSelector((state: RootState) => state.quiz);
 
-  const goToSurveyPage = () => {
-    navigate('/');
-  };
-
-  const handleRepeat = () => {
+  const handleRepeat = useCallback(() => {
     dispatch(deleteOptions());
     dispatch(startQuestions());
-    goToSurveyPage();
-  };
+    navigate('/');
+  }, [dispatch, navigate]);
 
   return (
     <>

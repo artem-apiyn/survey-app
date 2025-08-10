@@ -9,13 +9,22 @@ interface ProgressProps {
 }
 
 const ProgressBar = ({ currentPage, totalPages, onNext, disabled }: ProgressProps) => {
-    const percent = ((currentPage + 1) / totalPages) * 100;
+    const percent = totalPages > 0 ? ((currentPage + 1) / totalPages) * 100 : 0;
+    const isLastPage = currentPage + 1 === totalPages;
 
     return (
-        <ProgressContainer>
+      <ProgressContainer>
         <ProgressFill percent={percent} />
-        <NextButton className="next-button" disabled = {disabled} onClick={onNext}>{currentPage + 1 === totalPages ? 'Завершить' : 'Далее'}</NextButton>
-        </ProgressContainer>
+        <NextButton
+          className="next-button"
+          disabled={disabled}
+          onClick={onNext}
+          aria-disabled={disabled}
+          aria-label={isLastPage ? "Завершить опрос" : "Перейти к следующему вопросу"}
+        >
+          {isLastPage ? "Завершить" : "Далее"}
+        </NextButton>
+      </ProgressContainer>
     );
 };
 

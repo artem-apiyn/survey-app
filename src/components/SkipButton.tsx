@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { SkipButtonWrapper } from "../styled/Shared.styled";
 interface SkipButtonProps {
   onSkip: () => void;
 }
 const SkipButton = ({onSkip}: SkipButtonProps) => {
+    const handleClick = useCallback(() => {
+      onSkip();
+    }, [onSkip]);
     return (
-        <SkipButtonWrapper onClick={onSkip} type="button">Затрудняюсь ответить / Не помню</SkipButtonWrapper>
+      <SkipButtonWrapper onClick={handleClick} type="button" role="button" tabIndex={0}>
+        Затрудняюсь ответить / Не помню
+      </SkipButtonWrapper>
     )
 }
-export default SkipButton
+export default React.memo(SkipButton)
