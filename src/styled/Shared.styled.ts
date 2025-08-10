@@ -41,7 +41,7 @@ export const ProgressContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 35px;
-    background-color: #e6e6e6; /* серый фон */
+    background-color: #e6e6e6;
     border: 1px solid rgba(var(--border), 1);
     overflow: hidden;
 `;
