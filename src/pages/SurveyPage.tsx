@@ -11,10 +11,8 @@ const SurveyPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { allAnswers, currentId } = useSelector((state: RootState) => ({
-    allAnswers: state.quiz,
-    currentId: state.navigation.currentQuestionId,
-  }));
+  const allAnswers = useSelector((state: RootState) => state.quiz);
+  const currentId = useSelector((state: RootState) => state.navigation.currentQuestionId);
 
   const currentQuestion = useMemo(() => questions[currentId], [currentId]);
 

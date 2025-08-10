@@ -14,7 +14,7 @@ const ProgressBar = ({ currentPage, totalPages, onNext, disabled }: ProgressProp
 
     return (
       <ProgressContainer>
-        <ProgressFill percent={percent} />
+        <ProgressFill $percent={percent} />
         <NextButton
           className="next-button"
           disabled={disabled}

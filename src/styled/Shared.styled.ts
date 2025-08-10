@@ -46,9 +46,9 @@ export const ProgressContainer = styled.div`
     overflow: hidden;
 `;
 
-export const ProgressFill = styled.div<{ percent: number }>`
+export const ProgressFill = styled.div<{ $percent: number }>`
     height: 100%;
-    width: ${({ percent }) => percent}%;
+    width: ${({ $percent }) => $percent}%;
     background: repeating-linear-gradient(
         45deg,
         rgba(137, 194, 137, 0.8) 0px,
