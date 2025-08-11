@@ -51,7 +51,7 @@ const AnswerOptions = ({ questionId, selectedOptions, goToResultPage }: AnswerOp
     }, [dispatch, currentQuestion, questionId, goToResultPage]);
 
     if (!currentQuestion) {
-        return null
+        return null;
     };
 
     return (
