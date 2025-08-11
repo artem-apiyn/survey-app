@@ -8,7 +8,7 @@ const SkipButton = ({onSkip}: SkipButtonProps) => {
       onSkip();
     }, [onSkip]);
     return (
-      <SkipButtonWrapper onClick={handleClick} type="button" role="button" tabIndex={0}>
+      <SkipButtonWrapper onClick={handleClick} type="button" role="button" >
         Затрудняюсь ответить / Не помню
       </SkipButtonWrapper>
     )
