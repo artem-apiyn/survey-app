@@ -3,16 +3,17 @@ import { ShareLinkWrapper } from '../styled/Shared.styled';
 
 const ShareLink = () => {
   const [copied, setCopied] = useState(false);
-  const timeoutRef = useRef<number | null>(null);
-
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  
   const handleCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(window.location.origin);
       setCopied(true);
-      if (timeoutRef.current) {
+      if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
-      timeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy:', err);
       alert('Не удалось скопировать ссылку. Попробуйте еще раз.');
