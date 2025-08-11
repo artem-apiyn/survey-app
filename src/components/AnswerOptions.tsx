@@ -23,7 +23,9 @@ const AnswerOptions = ({ questionId, selectedOptions, goToResultPage }: AnswerOp
 
     const handleOptionChange = useCallback(
         (value: string, checked: boolean) => {
-            if (!currentQuestion) return;
+            if (!currentQuestion) {
+                return;
+            }
             dispatch(
                 toggleOption({
                     questionId: currentQuestion.id,
@@ -37,7 +39,9 @@ const AnswerOptions = ({ questionId, selectedOptions, goToResultPage }: AnswerOp
     );
 
     const handleSkip = useCallback(() => {
-        if (!currentQuestion) return;
+        if (!currentQuestion) {
+            return;
+        }
         dispatch(skipOptions({ questionId: currentQuestion.id }));
         if (questionId === questions.length - 1) {
             goToResultPage();
@@ -46,7 +50,9 @@ const AnswerOptions = ({ questionId, selectedOptions, goToResultPage }: AnswerOp
         }
     }, [dispatch, currentQuestion, questionId, goToResultPage]);
 
-    if (!currentQuestion) return null;
+    if (!currentQuestion) {
+        return null
+    };
 
     return (
         <>
